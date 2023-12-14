@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs Demo</title>
+    <!-- Use CDN for Prism.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-coy.min.css" integrity="sha512-XcB0I04SuOVkb6ewfVz0qMhU5QADIiFBFxPRRNWZUANF1W5onx8GlbHYYIivw3gXrTuZfu+1gAG8HvvKQG3oGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://kit.fontawesome.com/9917d371d4.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header class="website-header">
+      <h1>Building Components using Vanilla JavaScript</h1>
+    </header>
+    <main class="container">
+      <section>
+        <article class="blog-post">
+          <header class="blog-title">
+            <h2>How to Build Tabs Using Vanilla JS</h2>
+          </header>
+          <p>If you're reading this you're probably trying to figure out how to build a tab component using vanilla js.
+             In this article you will learn how to build the tab component you see below step by step. To build this tab list you'll first <strong>build out the structure of the component itself</strong>. Next you'll <strong>implement the functionality using javascript</strong>, and finally <strong>add styling</strong>. Let's get started! </p>
+         
+          <!-----------------------TAB COMPONENT--------------------->
+          <div class="tabs-demo">
+            <div class="tabs-container">
+              <ul class="tabs-list" role="tablist">
+                <li role="presentation">
+                  <a class="tab" id="tab-1" href="#reason1" role="tab">Tab 1</a>
+                </li>
+                <li role="presentation">
+                  <a class="tab" id="tab-2" href="#reason2" role="tab">Tab 2</a>
+                </li>
+                <li role="presentation">
+                  <a class="tab" id="tab-3" href="#reason3" role="tab">Tab 3</a>
+                </li>
+              </ul>
+    
+              <div class="tab-panel-container">
+                <div
+                  class="tab-panel"
+                  id="reason1"
+                  aria-labelledby="tab-1"
+                  role="tabpanel"
+                >
+                  <p>
+                    1. Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
+                    facilis tempore minus provident? Totam provident repudiandae
+                    temporibus. Corporis fugit ullam voluptatibus sint, laudantium
+                    quibusdam consequatur numquam error aliquid voluptas nam!
+                  </p>
+                </div>
+                <div
+                  class="tab-panel"
+                  id="reason2"
+                  aria-labelledby="tab-2"
+                  role="tabpanel"
+                >
+                  <p>
+                    2. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Dolore unde nihil earum non in fugit nesciunt accusantium nam
+                    illo sed quasi laudantium vitae aut libero culpa temporibus
+                    quas, necessitatibus perspiciatis.
+                  </p>
+                </div>
+                <div
+                  class="tab-panel"
+                  id="reason3"
+                  aria-labelledby="tab-3"
+                  role="tabpanel"
+                >
+                  <p>
+                    3. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Commodi dolores itaque magni totam tenetur officia libero
+                    repellat, hic cum est neque, dolorem eligendi ut necessitatibus
+                    nemo enim ipsum? Rerum, excepturi!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+             <!-----------------------END TAB COMPONENT--------------------->
+
+          <!---------------------TAB CREATION INTRUCTIONS------------------------->
+          <h3 class="blog-header">Step 1: Building the Tab Structure</h3>
+          <p>
+            The first thing you need to do to build out this tab component is to create
+            the structure. The structure includes the following:
+            <ul>
+              <li>A tab container where everything will be inside of</li>
+                <li>A tab list where the individual tabs will be</li>
+                <li>A tab panel container that holds the individual tab panel for each tab.
+                  <ul><li>the tab panel holds the information/content for each tab </li></ul>
+                </li>
+            </ul></p>
+              <pre class="code-block">
+                <code class="language-markup">
+  &lt;div class="tabs-container"&gt;
+    &lt;ul class="tabs-list" role="tablist"&gt;
+      &lt;li&gt;&lt;a role="tab"&gt;Tab 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a role="tab"&gt;Tab 2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a role="tab"&gt;Tab 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="tab-panels"&gt;
+      &lt;div class="tab-content" role="tabpanel"&gt;Tab Content 1&lt;/div&gt;
+      &lt;div class="tab-content" role="tabpanel"&gt;Tab Content 2&lt;/div&gt;
+      &lt;div class="tab-content" role="tabpanel"&gt;Tab Content 3&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+            </code>
+          </pre> 
+       
+
+            <p>Now that you have the basic structure, the next thing to do is build an association between each individual tab and it's related content. To do this, add an anchor tag aka a <strong>link </strong>inside each list item. This link will have an <strong>href </strong>value that will be used as the <strong>ID </strong>of a tab panel. The idea is that when the tab link is clicked, it will go to the value you provided in the href attribute, so we will use that same value as the <strong>ID</strong> for the associated panel.</p><h4 >Link</h4><code class=" code-block language-markup">&lt;li role="presentation"&gt;&lt;a class="tab" id="tab-2" href="#tabpanel1" role="tab"&gt;Tab 2&lt;/a&gt;&lt;/li&gt;
+              </code>
+              <h4 class="blog-subheader">Associated Panel</h4>
+              <code class="code-block language-markup">
+&lt;!-- Since id value is the same as the href value from the anchor tag, clicking it will jump to this content --&gt;
+&lt;div class="tab-content" id="tabpanel1" aria-labelledby="tab-1" role="tabpanel"&gt;&lt;/div&gt;
+            </code>
+            <p>Now that you've got all the necessary pieces in place, it's time to dive into the JavaScript part.
+              But before we jump into code, let's talk about why we're building our tab component this way as 
+              there are many solutions out there. You could easily create the same functionality using the <span class="inline-code">&lt;select&gt;&lt;/select&gt;</span> or <span class="inline-code">&lt;button&gt;&lt;/button&gt;</span> tags, but going down this route helps create a connections with the content.
+               It's not just about making things work; it's about ensuring that even if someone has JavaScript disabled, 
+               they can still navigate and make sense of what's going on, making your tabs more accessible!
+            </p>
+
+            <h3 class="blog-header">Step 2: Create Tab Functionality</h3>
+            <p>It's time to build out the functionality of the tabs using javascript. Currently your tab's probably don't look 
+              too great, we'll take care of that in the CSS portion but also you make have noticed that although we've built
+              the associations between the tab and the tab panels, all of the individual panels are still showing and what
+              you want is for each individual panel to show only when the associated tab is clicked. Let's look at how to achieve this.
+            </p>
+            <pre class="code-block">
+              <code class="language-javascript">
+// First tab is opened by default: So, for each tab that isn't the first one - hide the associated panel
+tabButtons.forEach((tab, index) => {
+  if (index === 0) {
+    tab.setAttribute("aria-selected", "true");
+    } else {
+      tab.setAttribute("tabindex", "-1");
+      tabPanels[index].setAttribute("hidden", "");
+    }
+  });
+              </code>
+            </pre>
+            <p>Now that we've hidden all the non-default panels, the next step is to make our tabs actually do something. We want to create an <strong>event</strong> so that when you click a tab, it switches to the right content. Right now, if you click a tab, the page will jump to the associated content, which is not what we want. We only set that up for accesiblity in case someone doesn't have JavaScript.
+            <br><br>
+            To get the tabs working the way we want, we need to stop that default behavior and implement our own, which will be displaying the right panel and hiding the others.</p>
+            <h4 class="blog-subheader">Click Event</h4>
+            <pre class="code-block">
+              <code class="language-javascript">
+tabsContainer.addEventListener("click", function (e) {
+   //first we'll look at what we clicked on since we have the event on the entire container
+  //as opposed to the the individual tabs
+  const clickedTab = e.target.closest("a");
+                
+   //if null, aka we didnt actally click on the tab link then just return and do nothing
+  if (!clickedTab) return;
+                
+  e.preventDefault();// prevent default behaviour aka no more jumping!
+  setActiveTab(clickedTab);
+  });
+              </code>
+            </pre>
+            <h4 class="blog-subheader">Setting the Active Tab</h4>
+            <pre class="code-block">
+              <code class="language-javascript">
+function setActiveTab(clickedTab) {
+  //Get the active tab and associated active panel
+  //We do this by grabbing href of the clicked tab
+  //because that it was we used for the ID's of the associated panel
+  const activeTab = clickedTab.getAttribute("href");
+  const activePanel = document.querySelector(activeTab);
+
+  //RESET TABS: go through and make sure no tab is selected
+  tabButtons.forEach((tab) => {
+    tab.setAttribute("aria-selected", false);
+    tab.setAttribute("tabindex", "-1");
+  });
+  //we'll also go through all the panels and add hidden to all panels
+  tabPanels.forEach((tabPanel) => {
+    tabPanel.setAttribute("hidden", true);
+  });
+
+  //next we'll set the active tab
+  clickedTab.setAttribute("aria-selected", true);
+  clickedTab.setAttribute("tabindex", "0");
+  clickedTab.focus();
+
+  //and then remove the hidden attribute from the corresponding active panel
+  activePanel.removeAttribute("hidden");
+}
+              </code>
+            </pre>
+
+            <p>Thats essentially it! Your tabs should be fully functional, so now all it needs is some styling!</p>
+            <h3 class="blog-header">Step 3: Add Some Style</h3>
+            <p>We're gonna keep the styling super simple but feel free to make them your own!
+              I've created some custom styles for color and font but the most important thing 
+              here is getting your tabs to actually look like tabs which means instead of the default vertical <strong>ul</strong>
+              we'll make it horizontal by adding a <span class="inline-code">display: flex;</span>, remove the bullet styling,
+              and move the horizontal line for the link a little bit lower. finally when a tab is clicked, we want it be higlighted and stand out a bit from the rest and to achive this we'll change the color and use <span class="inline-code">transform: scale(2);</span> to make the text slightly bigger and that's it!
+            </p>
+            <pre class="code-block">
+              <code class="language-css">
+[role="tablist"] {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 3rem;
+}
+
+[role="tab"] {
+  color: var(--color-black);
+  text-underline-offset: 0.5rem;
+}
+
+[aria-selected="true"] {
+  color: var(--color-pink);
+  transform: scale(2);
+  text-decoration-thickness: 0.25rem;
+}
+              </code>
+            </pre>
+            <br>
+            <h3 class="blog-header">Conclusion</h3>
+            <p>I hope you enjoyed and learned alot from this tutorial! Just to recap, you've learned to construct the fundamental structure of the tab, implemented dynamic functionality with JavaScript, and added a touch of style using CSS
+              By taking the approach of building connections between tabs and their content using a <strong>list</strong> as opposed to <strong>buttons</strong> or <strong>select</strong> tags, you've ensured not just functionality but also accessibility. Even users with JavaScript disabled can seamlessly navigate your tabs and comprehend the content, making your implementation robust and inclusive.
+              
+              Feel free to explore and customize the styling to suit your preferences. The full code is available in the <a id="github" href="https://github.com/martinacarter" target="_blank">GitHub Repository</a> linked in this tutorial, providing a comprehensive resource for reference.
+              
+              Now equipped with the knowledge gained here, go ahead and create some fantastic tabs for your projects! Happy coding! 🚀 </p>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <header class="footer-header">
+        <h1 >Martina Carter</h1>
+        <p>Follow me on social media</p>
+      </header>
+
+  <div class="social-media-icons">
+    <a href="https://www.linkedin.com/in/martina-carter/" target="_blank"> <i class="fa-brands fa-linkedin" style="color: #f06c9b;"></i></a>
+    <a href="https://www.facebook.com/martina.carter.98" target="_blank"><i class="fa-brands fa-tiktok" style="color: #f06c9b;"></i></a>
+   
+    <i class="fa-brands fa-square-facebook" style="color: #f06c9b;"></i>
+  </div></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="module" src="/tabs.js"></script>
+  </body>
+</html>
