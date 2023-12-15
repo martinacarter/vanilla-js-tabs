@@ -86,12 +86,6 @@ footer {
   text-align: center;
   padding: 1rem;
 }
-.social-media-icons {
-  padding-top: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
 
 /****************************
 * CODE STYLES
@@ -140,6 +134,12 @@ footer {
 **************************************/
 #github {
   color: var(--color-blue);
+}
+.social-media-icons {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 /****************************
 * MEDIA QUERIES
