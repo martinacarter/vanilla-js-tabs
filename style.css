@@ -12,9 +12,8 @@
   --font-size-website-header: 0.75rem;
   --blog-post-width: 42.5rem;
 
-  color-scheme: light dark;
-  color: var(--color-light);
-  background-color: var(--color-black);
+  color: var(--color-black);
+  background-color: var(--color-light);
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
@@ -35,14 +34,21 @@ h4 {
   margin: 0;
   padding: 0;
 }
+iframe {
+  margin: 0;
+  padding: 0;
+  border: none;
+  min-height: 250px;
+}
 .website-header {
   background-color: var(--color-pink);
   color: var(--color-light);
   font-size: var(--font-size-website-header);
   padding-left: 2rem;
-  min-height: 2rem;
+  min-height: 4rem;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 .blog-title {
   color: var(--color-black);
@@ -56,10 +62,36 @@ h4 {
   color: var(--color-blue);
   font-size: var(--font-size-blog-subheader);
 }
-.footer-header > * {
-  padding: 0;
-  margin: 0;
+
+/****************************
+* FOOTER STYLES
+****************************/
+footer {
+  background-color: var(--color-black);
+  color: var(--color-light);
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
+.footer-bio > * {
+  margin: 0;
+  padding: 0;
+}
+.footer-bio {
+  display: flex;
+  flex-direction: column;
+}
+.footer-bio-header {
+  font-size: var(--font-size-blog-header);
+  font-weight: 600;
+  color: var(--color-light);
+}
+
+.social-media-icons {
+  display: flex;
+  gap: 2rem;
+}
+
 /****************************
 * MAIN STYLES
 ****************************/
@@ -78,13 +110,7 @@ body {
   max-width: var(--blog-post-width);
   display: flex;
   flex-direction: column;
-}
-
-footer {
-  background-color: var(--color-black);
-  color: var(--color-light);
-  text-align: center;
-  padding: 1rem;
+  padding-bottom: 2rem;
 }
 
 /****************************
@@ -92,7 +118,6 @@ footer {
 ****************************/
 .inline-code {
   background-color: var(--color-inline-code);
-  font-weight: 700;
   font-size: 80%;
   padding: 0.25rem;
   overflow: scroll;
@@ -102,57 +127,16 @@ footer {
   overflow: scroll !important;
 }
 
-/****************************
-* TAB STYLES
-****************************/
-.tabs-demo {
-  display: flex;
-  justify-content: center;
-  border: 1px solid var(--color-beige);
-  border-radius: 1.25rem;
-  padding: 1.25rem;
-}
-
-[role="tablist"] {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 3rem;
-}
-[role="tab"] {
-  color: var(--color-black);
-  text-underline-offset: 0.5rem;
-}
-[aria-selected="true"] {
-  color: var(--color-pink);
-  transform: scale(2);
-  text-decoration-thickness: 0.25rem;
-}
 /***************************************
 * LINKS
 **************************************/
 #github {
   color: var(--color-blue);
 }
-.social-media-icons {
-  padding-top: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
+
 /****************************
 * MEDIA QUERIES
 ****************************/
-@media (prefers-color-scheme: light) {
-  :root {
-    color: var(--color-black);
-    background-color: var(--color-light);
-  }
-}
-/***************************************
-* MOBILE
-**************************************/
 @media screen and (max-width: 600px) {
   :root {
     --font-size-body: 1rem;
@@ -168,9 +152,4 @@ footer {
     margin: 0;
     padding: 0;
   }
-}
-/***************************************
-* TABLETS
-**************************************/
-@media screen and (max-width: 600px) {
 }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs</title>
+    <link rel="stylesheet" href="/tabs.css" />
+    <script type="module" src="/tabs.js"></script>
+  </head>
+  <body>
+    <div class="tabs-demo">
+      <div class="tabs-container">
+        <ul class="tabs-list" role="tablist">
+          <li role="presentation">
+            <a class="tab" id="tab-1" href="#reason1" role="tab">Tab 1</a>
+          </li>
+          <li role="presentation">
+            <a class="tab" id="tab-2" href="#reason2" role="tab">Tab 2</a>
+          </li>
+          <li role="presentation">
+            <a class="tab" id="tab-3" href="#reason3" role="tab">Tab 3</a>
+          </li>
+        </ul>
+
+        <div class="tab-panel-container">
+          <div
+            class="tab-panel"
+            id="reason1"
+            aria-labelledby="tab-1"
+            role="tabpanel"
+          >
+            <p>
+              1. Lorem ipsum, dolor sit amet consectetur adipisicing elit. In
+              facilis tempore minus provident? Totam provident repudiandae
+              temporibus. Corporis fugit ullam voluptatibus sint, laudantium
+              quibusdam consequatur numquam error aliquid voluptas nam!
+            </p>
+          </div>
+          <div
+            class="tab-panel"
+            id="reason2"
+            aria-labelledby="tab-2"
+            role="tabpanel"
+          >
+            <p>
+              2. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Dolore unde nihil earum non in fugit nesciunt accusantium nam illo
+              sed quasi laudantium vitae aut libero culpa temporibus quas,
+              necessitatibus perspiciatis.
+            </p>
+          </div>
+          <div
+            class="tab-panel"
+            id="reason3"
+            aria-labelledby="tab-3"
+            role="tabpanel"
+          >
+            <p>
+              3. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Commodi dolores itaque magni totam tenetur officia libero
+              repellat, hic cum est neque, dolorem eligendi ut necessitatibus
+              nemo enim ipsum? Rerum, excepturi!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
