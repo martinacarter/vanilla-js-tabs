@@ -17,3 +17,7 @@ The tab component is a common UI pattern used to organize and display content in
 
    ```bash
    git clone https://github.com/martinacarter/vanilla-js-tabs.git
+
+## Live Demo
+
+https://vanilla-js-tabs.vercel.app/
